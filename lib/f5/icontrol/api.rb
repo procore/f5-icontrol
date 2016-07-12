@@ -2,7 +2,7 @@ module F5
   module Icontrol
     class API
       attr_accessor :api_path
-      attr_reader :params, :username, :password, :hostname, :client_cache
+      attr_reader :params, :client_cache
 
       def initialize(api_path = nil, **params)
         @params = params.dup
@@ -37,15 +37,31 @@ module F5
         endpoint = '/iControl/iControlPortal.cgi'
         client_cache[api_path] ||= Savon.client(
           wsdl: "#{wsdl_path}#{api_path}.wsdl",
-          endpoint: "https://#{hostname || F5::Icontrol.configuration.host}#{endpoint}",
+          endpoint: "https://#{hostname}#{endpoint}",
           ssl_verify_mode: :none,
-            basic_auth: [username || F5::Icontrol.configuration.username, password || F5::Icontrol.configuration.password],
+            basic_auth: [username, password],
             namespace: "urn:iControl:#{api_namespace}",
           convert_request_keys_to: :none
         )
       end
 
       private
+
+      def hostname
+        @hostname || F5::Icontrol.configuration.host || yaml_config["host"]
+      end
+
+      def username
+        @username || F5::Icontrol.configuration.username || yaml_config["username"]
+      end
+
+      def password
+        @password || F5::Icontrol.configuration.password || yaml_config["password"]
+      end
+
+      def yaml_config
+        @yaml_config ||= YAML.load_file("./.f5.yml").fetch('default', {})
+      end
 
       def terminal_node?
         ::File.exists?("#{wsdl_path}/#{api_path}.wsdl")
