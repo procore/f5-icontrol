@@ -23,11 +23,17 @@ module F5
 
     class Configuration
       attr_accessor :host, :username, :password
+      attr_writer :config_file
 
       def initialize
         @host = nil
         @username = nil
         @password = nil
+        @config_file = nil
+      end
+
+      def config_file
+        @config_file || '.f5.yml'
       end
     end
   end

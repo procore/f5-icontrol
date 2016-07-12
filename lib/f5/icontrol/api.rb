@@ -60,7 +60,7 @@ module F5
       end
 
       def yaml_config
-        @yaml_config ||= YAML.load_file("./.f5.yml").fetch('default', {})
+        @yaml_config ||= YAML.load_file(F5::Icontrol.configuration.config_file).fetch('default', {})
       end
 
       def terminal_node?
