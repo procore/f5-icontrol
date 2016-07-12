@@ -12,7 +12,7 @@ module F5
       attr_writer :client
     end
 
-    def configuration
+    def self.configuration
       @configuration || Configuration.new
     end
 
