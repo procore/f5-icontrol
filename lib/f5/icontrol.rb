@@ -1,5 +1,7 @@
 require "f5/icontrol/version"
 require "f5/icontrol/api"
+require "f5/icontrol/pool"
+require "f5/icontrol/pool_member"
 require "openssl"
 require "savon"
 
