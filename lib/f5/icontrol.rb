@@ -7,6 +7,7 @@ module F5
   module Icontrol
     class << self
       attr_accessor :configuration
+      attr_writer :client
     end
 
     def self.configure
@@ -23,6 +24,5 @@ module F5
         @password = ""
       end
     end
-
   end
 end

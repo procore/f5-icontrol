@@ -94,8 +94,6 @@ module F5
           states: { item: [ "STATE_ENABLED" ] }
         )
       end
-
-
     end
 
     class SelfIP < Subcommand
@@ -220,7 +218,6 @@ module F5
     end
 
     class Pool < Subcommand
-
       desc "list", "Lists all the pools"
       def list
         response = client.LocalLB.Pool.get_list
@@ -229,27 +226,27 @@ module F5
         if pools.empty?
           puts "No pools found"
         else
-          pools.each do |p|
-            puts p
-          end
+          pools.each { |p| puts p }
         end
       end
 
-      desc "show POOL", "Shows a pool's status"
+      desc "show POOL", "Shows a pool's members"
       def show(pool)
-        members = pool_members(pool)
+        pool_obj = F5::Icontrol::Pool.new(pool)
+        members = pool_obj.members
         if members.empty?
           puts "Pool #{pool} is empty"
         else
           members.each do |member|
-            puts "#{member[:address]}:#{member[:port]}"
+            puts "#{member.address}:#{member.port}"
           end
         end
       end
 
-      desc "status POOL", "Shows the status of a pool"
+      desc "status POOL", "Shows the status of a pool and its members"
       def status(pool)
-        members = pool_members(pool)
+        pool_obj = F5::Icontrol::Pool.new(pool)
+        members = pool_obj.members
         response = client.LocalLB.Pool.get_member_object_status(
           pool_names: { item: [ pool ] },
           members: { item: [ members ] }
@@ -318,17 +315,6 @@ module F5
           )
         end
       end
-
-      private
-      def pool_members(pool)
-        response = client.LocalLB.Pool.get_member_v2(pool_names: { item: [ pool ] } )
-
-        members = response[:item][:item]
-        members = [ members ] if members.is_a? Hash
-
-        members.map { |m| { address: m[:address], port: m[:port] } }
-      end
-
     end
 
     class Application < Thor

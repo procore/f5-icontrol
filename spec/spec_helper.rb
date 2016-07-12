@@ -1,5 +1,6 @@
 require 'f5/icontrol'
 require 'vcr'
+require 'webmock/rspec'
 
 RSpec.configure do |c|
   # https://github.com/docwhat/homedir/blob/homedir3/spec/spec_helper.rb
