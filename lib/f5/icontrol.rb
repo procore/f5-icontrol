@@ -8,8 +8,12 @@ require "savon"
 module F5
   module Icontrol
     class << self
-      attr_accessor :configuration
+      attr_writer :configuration
       attr_writer :client
+    end
+
+    def configuration
+      @configuration || Configuration.new
     end
 
     def self.configure
@@ -21,9 +25,9 @@ module F5
       attr_accessor :host, :username, :password
 
       def initialize
-        @host = "set_me_in_configure_block"
-        @username = ""
-        @password = ""
+        @host = nil
+        @username = nil
+        @password = nil
       end
     end
   end
