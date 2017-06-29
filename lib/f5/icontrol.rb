@@ -9,7 +9,11 @@ require "savon"
 module F5
   module Icontrol
     class << self
-      attr_accessor :configuration, :client
+      attr_writer :configuration
+
+      def configuration
+        @configuration ||= Configuration.new
+      end
 
       def configure
         self.configuration ||= Configuration.new
