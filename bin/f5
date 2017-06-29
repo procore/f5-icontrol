@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
 
-require 'f5/cli/application'
-require 'f5/icontrol'
+lib = File.expand_path("../../lib", __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require "f5/cli/application"
+require "f5/icontrol"
 
 F5::Cli::Application.start(ARGV)
