@@ -1,25 +1,20 @@
-require "f5/icontrol/version"
 require "f5/icontrol/api"
 require "f5/icontrol/pool"
 require "f5/icontrol/pool_member"
+require "f5/icontrol/version"
 require "openssl"
 require "savon"
 
 module F5
   module Icontrol
     class << self
-      attr_writer :configuration
-      attr_writer :client
-    end
+      attr_accessor :configuration, :client
 
-    def self.configuration
-      @configuration || Configuration.new
-    end
-
-    def self.configure
-      self.configuration ||= Configuration.new
-      yield configuration
-      configuration.load_config_file
+      def configure
+        self.configuration ||= Configuration.new
+        yield configuration
+        configuration.load_config_file
+      end
     end
 
     class Configuration
