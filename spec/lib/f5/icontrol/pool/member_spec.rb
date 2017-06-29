@@ -1,8 +1,8 @@
-require 'spec_helper'
-require 'f5/icontrol/pool'
-require 'f5/icontrol/pool_member'
+require "spec_helper"
+require "f5/icontrol/pool"
+require "f5/icontrol/pool/member"
 
-RSpec.describe F5::Icontrol::PoolMember do
+RSpec.describe F5::Icontrol::Pool::Member do
   before do
     allow_any_instance_of(F5::Icontrol::API).to receive(:set_member_session_enabled_state)
     allow_any_instance_of(F5::Icontrol::API).to receive(:set_member_monitor_state)
@@ -16,42 +16,42 @@ RSpec.describe F5::Icontrol::PoolMember do
     stub_request(:any, /test.host/)
   end
 
-  let(:pool) { F5::Icontrol::Pool.new(address: 'pool') }
+  let(:pool) { F5::Icontrol::Pool.new(address: "pool") }
 
-  describe '#enable' do
-    it 'enables the pool member in its parent pool' do
-      member = F5::Icontrol::PoolMember.new(address: 'address', port: '80', pool: pool)
+  describe "#enable" do
+    it "enables the pool member in its parent pool" do
+      member = F5::Icontrol::Pool::Member.new(address: "address", port: "80", pool: pool)
 
       expect_any_instance_of(F5::Icontrol::API).to receive(:set_member_session_enabled_state).with(
         pool_names: { item: [pool.address] },
         members: { item: [[{ address: member.address, port: member.port }]] },
-        session_states: { item: [['STATE_ENABLED']] },
+        session_states: { item: [["STATE_ENABLED"]] },
       )
 
       expect_any_instance_of(F5::Icontrol::API).to receive(:set_member_monitor_state).with(
         pool_names: { item: [pool.address] },
         members: { item: [[{ address: member.address, port: member.port }]] },
-        monitor_states: { item: [['STATE_ENABLED']] },
+        monitor_states: { item: [["STATE_ENABLED"]] },
       )
 
       member.enable
     end
   end
 
-  describe '#disable' do
-    it 'disables the pool member in its parent pool' do
-      member = F5::Icontrol::PoolMember.new(address: 'address', port: '80', pool: pool)
+  describe "#disable" do
+    it "disables the pool member in its parent pool" do
+      member = F5::Icontrol::Pool::Member.new(address: "address", port: "80", pool: pool)
 
       expect_any_instance_of(F5::Icontrol::API).to receive(:set_member_session_enabled_state).with(
         pool_names: { item: [pool.address] },
         members: { item: [[{ address: member.address, port: member.port }]] },
-        session_states: { item: [['STATE_DISABLED']] },
+        session_states: { item: [["STATE_DISABLED"]] },
       )
 
       expect_any_instance_of(F5::Icontrol::API).to receive(:set_member_monitor_state).with(
         pool_names: { item: [pool.address] },
         members: { item: [[{ address: member.address, port: member.port }]] },
-        monitor_states: { item: [['STATE_DISABLED']] },
+        monitor_states: { item: [["STATE_DISABLED"]] },
       )
 
       member.disable
