@@ -42,10 +42,10 @@ RSpec.describe F5::Icontrol::Pool do
         {
           item: {
             item: [
-              { 
+              {
                 address: "/Customer/web1.production",
                 port: "80"
-              }, 
+              },
               {
                 address: "/Customer/web10.production",
                 port: "80"
