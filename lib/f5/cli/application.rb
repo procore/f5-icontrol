@@ -28,7 +28,7 @@ module F5
       end
 
       def build_client
-        config_file = F5::Icontrol.configuration.config_file
+        config_file = F5::Icontrol.config_file
         config = YAML.load_file(config_file)
 
         if config.key?('username') && options[:lb] == 'default'

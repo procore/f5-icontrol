@@ -48,15 +48,15 @@ module F5
       private
 
       def hostname
-        @hostname || F5::Icontrol.configuration.host
+        @hostname || F5::Icontrol.host
       end
 
       def username
-        @username || F5::Icontrol.configuration.username
+        @username || F5::Icontrol.username
       end
 
       def password
-        @password || F5::Icontrol.configuration.password
+        @password || F5::Icontrol.password
       end
 
       def terminal_node?
