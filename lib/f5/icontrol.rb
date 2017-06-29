@@ -19,21 +19,25 @@ module F5
     def self.configure
       self.configuration ||= Configuration.new
       yield configuration
+      configuration.load_config_file
     end
 
     class Configuration
-      attr_accessor :host, :username, :password
-      attr_writer :config_file
+      attr_accessor :host, :username, :password, :config_file
 
       def initialize
-        @host = nil
-        @username = nil
-        @password = nil
-        @config_file = nil
+        @config_file = ".f5.yml"
+        load_config_file
       end
 
-      def config_file
-        @config_file || '.f5.yml'
+      def load_config_file
+        if File.exist?(config_file)
+          yaml = YAML.load_file(config_file).fetch("default", {})
+
+          self.host ||= yaml["host"]
+          self.username ||= yaml["username"]
+          self.password ||= yaml["password"]
+        end
       end
     end
   end

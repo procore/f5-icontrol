@@ -48,19 +48,15 @@ module F5
       private
 
       def hostname
-        @hostname || F5::Icontrol.configuration.host || yaml_config["host"]
+        @hostname || F5::Icontrol.configuration.host
       end
 
       def username
-        @username || F5::Icontrol.configuration.username || yaml_config["username"]
+        @username || F5::Icontrol.configuration.username
       end
 
       def password
-        @password || F5::Icontrol.configuration.password || yaml_config["password"]
-      end
-
-      def yaml_config
-        @yaml_config ||= YAML.load_file(F5::Icontrol.configuration.config_file).fetch('default', {})
+        @password || F5::Icontrol.configuration.password
       end
 
       def terminal_node?
