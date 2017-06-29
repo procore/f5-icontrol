@@ -1,14 +1,15 @@
-require 'yaml'
+require "yaml"
 
 module F5
   module Icontrol
-    class PoolMember
-      attr_reader :address, :port, :pool
+    class Pool::Member
+      attr_reader :address, :client, :port, :pool
 
-      def initialize(address:, port:, pool:)
+      def initialize(address:, client:, port:, pool:)
         @address = address
-        @port = port
+        @client = client
         @pool = pool
+        @port = port
       end
 
       def enable
@@ -39,17 +40,15 @@ module F5
         )
       end
 
-      private
+      def stats
+        Statistics.new(client: client, pool: pool, member: self)
+      end
 
       def to_hash
         {
           address: address,
           port: port,
         }
-      end
-
-      def client
-        F5::Icontrol::API.new
       end
     end
   end

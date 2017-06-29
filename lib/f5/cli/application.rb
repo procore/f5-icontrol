@@ -232,7 +232,7 @@ module F5
 
       desc "show POOL", "Shows a pool's members"
       def show(pool)
-        pool_obj = F5::Icontrol::Pool.new(pool)
+        pool_obj = F5::Icontrol::Pool.new(address: pool)
         members = pool_obj.members
         if members.empty?
           puts "Pool #{pool} is empty"
@@ -245,7 +245,7 @@ module F5
 
       desc "status POOL", "Shows the status of a pool and its members"
       def status(pool)
-        pool_obj = F5::Icontrol::Pool.new(pool)
+        pool_obj = F5::Icontrol::Pool.new(address: pool)
         members = pool_obj.members
         response = client.LocalLB.Pool.get_member_object_status(
           pool_names: { item: [ pool ] },

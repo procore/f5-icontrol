@@ -1,0 +1,248 @@
+{
+  "item": {
+    "statistics": {
+      "item": {
+        "member": {
+          "address": "/Customer/web2.staging6",
+          "port": "80",
+          "@s:type": "iControl:Common.AddressPort"
+        },
+        "statistics": {
+          "item": [
+            {
+              "type": "STATISTIC_SERVER_SIDE_BYTES_IN",
+              "value": {
+                "high": "0",
+                "low": "135736041",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_SERVER_SIDE_BYTES_OUT",
+              "value": {
+                "high": "0",
+                "low": "1811656480",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_SERVER_SIDE_PACKETS_IN",
+              "value": {
+                "high": "0",
+                "low": "1675698",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_SERVER_SIDE_PACKETS_OUT",
+              "value": {
+                "high": "0",
+                "low": "2101079",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_SERVER_SIDE_CURRENT_CONNECTIONS",
+              "value": {
+                "high": "0",
+                "low": "48",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_SERVER_SIDE_MAXIMUM_CONNECTIONS",
+              "value": {
+                "high": "0",
+                "low": "66",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_SERVER_SIDE_TOTAL_CONNECTIONS",
+              "value": {
+                "high": "0",
+                "low": "4379",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_PVA_SERVER_SIDE_BYTES_IN",
+              "value": {
+                "high": "0",
+                "low": "0",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_PVA_SERVER_SIDE_BYTES_OUT",
+              "value": {
+                "high": "0",
+                "low": "0",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_PVA_SERVER_SIDE_PACKETS_IN",
+              "value": {
+                "high": "0",
+                "low": "0",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_PVA_SERVER_SIDE_PACKETS_OUT",
+              "value": {
+                "high": "0",
+                "low": "0",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_PVA_SERVER_SIDE_CURRENT_CONNECTIONS",
+              "value": {
+                "high": "0",
+                "low": "0",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_PVA_SERVER_SIDE_MAXIMUM_CONNECTIONS",
+              "value": {
+                "high": "0",
+                "low": "0",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_PVA_SERVER_SIDE_TOTAL_CONNECTIONS",
+              "value": {
+                "high": "0",
+                "low": "0",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_TOTAL_REQUESTS",
+              "value": {
+                "high": "0",
+                "low": "373701",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_CURRENT_SESSIONS",
+              "value": {
+                "high": "0",
+                "low": "0",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_TOTAL_PVA_ASSISTED_CONNECTIONS",
+              "value": {
+                "high": "0",
+                "low": "0",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_CURRENT_PVA_ASSISTED_CONNECTIONS",
+              "value": {
+                "high": "0",
+                "low": "0",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_CONNQUEUE_CONNECTIONS",
+              "value": {
+                "high": "0",
+                "low": "0",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_CONNQUEUE_AGE_OLDEST_ENTRY",
+              "value": {
+                "high": "0",
+                "low": "0",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_CONNQUEUE_AGE_MAX",
+              "value": {
+                "high": "0",
+                "low": "0",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_CONNQUEUE_AGE_MOVING_AVG",
+              "value": {
+                "high": "0",
+                "low": "0",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_CONNQUEUE_AGE_EXPONENTIAL_DECAY_MAX",
+              "value": {
+                "high": "0",
+                "low": "0",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            },
+            {
+              "type": "STATISTIC_CONNQUEUE_SERVICED",
+              "value": {
+                "high": "0",
+                "low": "0",
+                "@s:type": "iControl:Common.ULong64"
+              },
+              "time_stamp": "0"
+            }
+          ],
+          "@s:type": "A:Array",
+          "@a:array_type": "iControl:Common.Statistic[24]"
+        }
+      },
+      "@s:type": "A:Array",
+      "@a:array_type": "iControl:LocalLB.Pool.MemberStatisticEntry[1]"
+    },
+    "time_stamp": {
+      "year": "2017",
+      "month": "6",
+      "day": "29",
+      "hour": "17",
+      "minute": "58",
+      "second": "0",
+      "@s:type": "iControl:Common.TimeStamp"
+    }
+  },
+  "@s:type": "A:Array",
+  "@a:array_type": "iControl:LocalLB.Pool.MemberStatistics[1]"
+}
