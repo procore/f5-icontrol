@@ -24,14 +24,20 @@ module F5
       end
 
       def client
-        return @client if @client
-        config = YAML.load_file("#{ENV['HOME']}/.f5.yml")
+        @client ||= build_client
+      end
+
+      def build_client
+        config_file = F5::Icontrol.configuration.config_file
+        config = YAML.load_file(config_file)
+
         if config.key?('username') && options[:lb] == 'default'
           puts "Warning: credentials in .f5.yml should be put under a named load balancer."
           configure_lb_as(config)
         else
           configure_lb_as config[options[:lb]]
         end
+
         F5::Icontrol::API.new
       end
 
@@ -232,7 +238,7 @@ module F5
 
       desc "show POOL", "Shows a pool's members"
       def show(pool)
-        pool_obj = F5::Icontrol::Pool.new(address: pool)
+        pool_obj = F5::Icontrol::Pool.new(address: pool, client: client)
         members = pool_obj.members
         if members.empty?
           puts "Pool #{pool} is empty"
@@ -245,7 +251,7 @@ module F5
 
       desc "status POOL", "Shows the status of a pool and its members"
       def status(pool)
-        pool_obj = F5::Icontrol::Pool.new(address: pool)
+        pool_obj = F5::Icontrol::Pool.new(address: pool, client: client)
         members = pool_obj.members
         response = client.LocalLB.Pool.get_member_object_status(
           pool_names: { item: [ pool ] },

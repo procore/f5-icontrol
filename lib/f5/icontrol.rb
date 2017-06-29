@@ -26,7 +26,7 @@ module F5
       attr_accessor :host, :username, :password, :config_file
 
       def initialize
-        @config_file = ".f5.yml"
+        @config_file = Dir.home.join(".f5.yml")
         load_config_file
       end
 
