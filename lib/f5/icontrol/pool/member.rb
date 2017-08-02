@@ -44,6 +44,10 @@ module F5
         Statistics.new(client: client, pool: pool, member: self)
       end
 
+      def status
+        Status.new(client: client, pool: pool, member: self)
+      end
+
       def to_hash
         {
           address: address,

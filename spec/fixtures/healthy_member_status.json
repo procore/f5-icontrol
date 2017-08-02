@@ -1,0 +1,12 @@
+{
+  "item": {
+    "item": {
+      "availability_status": "AVAILABILITY_STATUS_GREEN",
+      "enabled_status": "ENABLED_STATUS_ENABLED",
+      "status_description": "Pool member is available"
+    },
+    "a:array_type": "iControl:LocalLB.ObjectStatus[1]"
+  },
+  "s:type": "A:Array",
+  "a:array_type": "iControl:LocalLB.ObjectStatus[][1]"
+}
